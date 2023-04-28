@@ -11,3 +11,11 @@ nav{
     color: black;
     font-size: 2rem;
 }
+
+ul{
+    gap: 2rem;
+    line-height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
