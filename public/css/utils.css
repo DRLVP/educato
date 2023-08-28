@@ -21,3 +21,24 @@
     width: var(--lg-container-width);
     margin: 0 auto;
 }
+
+.btn {
+    display: inline-block;
+    background-color: var(--white-color);
+    color: var(--black-color);
+    padding: 1rem 2rem;
+    border: 1px solid transparent;
+    font-weight: 500;
+    transition: var(--transition);
+
+    &:hover {
+        background: transparent;
+        color: var(--white-color);
+        border-color: var(--white-color);
+    }
+}
+
+.primary__btn {
+    background: var(--danger-color);
+    color: var(--white-color);
+}
