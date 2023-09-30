@@ -13,53 +13,54 @@ body {
     line-height: 1.7;
     background: var(--bg-color);
     color: var(--white-color);
-}
+    overflow-x: hidden;
 
-section {
-    padding: 4rem 0;
+    & section {
+        padding: 4rem 0;
+
+        & h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+    }
+
+    & h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        line-height: 1.2;
+    }
+
+    & h1 {
+        font-size: 2.4rem;
+    }
 
     & h2 {
-        text-align: center;
-        margin-bottom: 2rem;
+        font-size: 2rem;
     }
-}
 
-h1,
-h2,
-h3,
-h4,
-h5 {
-    line-height: 1.2;
-}
+    & h3 {
+        font-size: 1.6rem;
+    }
 
-h1 {
-    font-size: 2.4rem;
-}
+    & h4 {
+        font-size: 1.3rem;
+    }
 
-h2 {
-    font-size: 2rem;
-}
+    & h5 {
+        font-size: 1rem;
+    }
 
-h3 {
-    font-size: 1.6rem;
-}
+    & a {
+        color: var(--white-color);
+    }
 
-h4 {
-    font-size: 1.3rem;
-}
-
-h5 {
-    font-size: 1rem;
-}
-
-a {
-    color: var(--white-color);
-}
-
-img {
-    width: 100%;
-    display: block;
-    object-fit: cover;
+    & img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+    }
 }
 
 /* ====================== 
@@ -67,12 +68,12 @@ img {
                 ==================== */
 
 nav {
-    /* background-color: red; */
     width: 100vw;
     height: 5rem;
     position: fixed;
     top: 0;
     z-index: 11;
+    transition: var(--transition);
 
     .nav__container {
         height: 100%;
@@ -101,12 +102,21 @@ nav {
             transition: var(--transition);
 
             &:hover {
-                color: var(--bg2-color);
+                color: var(--danger-color);
             }
         }
     }
 
 
+}
+
+/* ================
+            WINDOW-SCROLL 
+            =======================*/
+
+.window-scroll {
+    background: var(--bg2-color);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 }
 
 /* =====================
@@ -141,7 +151,7 @@ header {
 
 .categories__section {
     background: var(--bg1-color);
-    height: 29rem;
+    height: 32rem;
 
     .categories__container {
         display: grid;
@@ -176,6 +186,18 @@ header {
                     background-color: var(--danger-color);
                 }
 
+                &:nth-child(3) .category__icon {
+                    background-color: var(--success-color);
+                }
+
+                &:nth-child(4) .category__icon {
+                    background-color: var(--warning-color);
+                }
+
+                &:nth-child(5) .category__icon {
+                    background-color: var(--success-color);
+                }
+
                 .category__icon {
                     background: var(--primary-color);
                     padding: .7rem;
@@ -194,4 +216,258 @@ header {
             }
         }
     }
+}
+
+/* =====================
+            COURSES SECTION
+            ======================*/
+.course__section {
+    margin-top: 10rem;
+
+    .course__container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+
+        .course {
+            background: var(--bg1-color);
+            text-align: center;
+            border: 1px solid transparent;
+            transition: var(--transition);
+            cursor: pointer;
+
+            .course__info {
+                padding: 2rem;
+
+                & p {
+                    margin: 1.2rem 0 2rem;
+                    font-size: 0.9rem;
+                }
+            }
+
+            &:hover {
+                border-color: var(--primary-color);
+                background: transparent;
+            }
+        }
+    }
+}
+
+/* =====================
+            FAQ'S SECTION
+            ======================*/
+
+
+.faq__section {
+    background: var(--bg1-color);
+    box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.8);
+
+    .faq__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+
+        .faq {
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            height: fit-content;
+            gap: 1.4rem;
+            background-color: var(--primary-color);
+            cursor: pointer;
+
+            .faq__question {
+
+                & h4 {
+                    font-size: 1.2rem;
+                }
+
+                & p {
+                    margin-top: 0.8rem;
+                    display: none;
+                }
+
+            }
+
+            .faq__icon {
+                font-size: 1.2rem;
+                align-self: flex-start;
+                transition: var(--transition);
+            }
+
+        }
+
+        .faq.open p {
+            display: block;
+        }
+    }
+}
+
+/* =====================
+            TESTIMONIAL SECTION
+            ======================*/
+.testimonial__container {
+    overflow-x: hidden;
+    position: relative;
+    margin-bottom: 5rem;
+
+    .testimonial {
+        padding: 2rem;
+        cursor: pointer;
+        transition: all 0.5s ease;
+
+        .avatar {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1rem;
+            border: 1rem solid var(--bg1-color);
+        }
+
+        .testimonial__info {
+            text-align: center;
+        }
+
+        .testimonial__body {
+            background: var(--primary-color);
+            padding: 2rem;
+            margin-top: 3rem;
+            position: relative;
+
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 48%;
+                top: -1.2rem;
+                width: 3rem;
+                height: 3rem;
+                background: linear-gradient(135deg, transparent, var(--primary-color), var(--primary-color), var(--primary-color));
+                transform: rotate(45deg);
+            }
+        }
+    }
+}
+
+/* =====================
+            FOOTER SECTION
+            ======================*/
+
+footer {
+    background-color: var(--bg1-color);
+    padding-top: 5rem;
+    font-size: .9rem;
+
+    .footer__container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5rem;
+
+        & div {
+            & h4 {
+                margin-bottom: 1.2rem;
+            }
+        }
+
+        .footer__1 {
+            & p {
+                margin: 0 0 2rem;
+            }
+        }
+
+        & ul {
+            & li {
+                margin-bottom: .7rem;
+
+                & a {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
+        .footer__4 {
+            .footer__socials {
+                display: flex;
+                gap: 2rem;
+                margin-top: 2rem;
+
+                & a {
+                    & i {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer__copyright {
+        text-align: center;
+        margin-top: 4rem;
+        padding: 1.2rem 0;
+        border-top: 1px solid var(--bg2-color);
+
+        & small {
+            font-size: .8rem;
+        }
+    }
+}
+
+
+/* =====================
+            RESPONSIVE DESIGN
+            ======================*/
+
+/* ============
+    TABLET'S
+============ */
+@media screen and (max-width:1024px) {
+    body {
+
+        & h1 {
+            font-size: 2.2rem;
+        }
+
+        & h2 {
+            font-size: 1.7rem;
+        }
+
+        & h3 {
+            font-size: 1.4rem;
+        }
+
+        & h4 {
+            font-size: 1.2rem;
+        }
+
+    }
+
+    .container {
+        width: var(--md-container-width);
+    }
+
+    nav {
+        .nav__container {
+            & button {
+                display: inline-block;
+                background: transparent;
+                font-size: 1.8rem;
+                color: var(--white-color);
+                cursor: pointer;
+            }
+
+            .close__menu {
+                display: none;
+            }
+
+            .nav__menu {
+                position: fixed;
+                top: 5rem;
+                right: 10%;
+            }
+        }
+    }
+
 }
